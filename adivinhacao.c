@@ -116,4 +116,5 @@ int main() {
         printf("O número secreto era %d!\n", numerosecreto);
         printf("Tente de novo!\n");
     }
+    return 0;
 }
