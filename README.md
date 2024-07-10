@@ -1,4 +1,4 @@
-<h1>Tabuada</h1>
+<h1>Jogo do número secreto</h1>
 
 <h2> :memo: Sobre</h2>
 <p>Projeto utilizado no curso de C da Alura.</p>
