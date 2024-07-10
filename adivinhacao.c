@@ -1,12 +1,21 @@
+//incluindo as bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int main() {
-    printf("****************************************\n");
-    printf("*Bem vindo ao nosso jogo de adivinhação*\n");
-    printf("****************************************\n");
+    //cabeçalho
+    printf("\n\n");
+    printf("          P  /_\\  P                              \n");
+    printf("         /_\\_|_|_/_\\                            \n");
+    printf("     n_n | ||. .|| | n_n         Bem vindo ao     \n");
+    printf("     |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação! \n");
+    printf("    |\" \"  |  |_|  |\"  \" |                     \n");
+    printf("    |_____| ' _ ' |_____|                         \n");
+    printf("          \\__|_|__/                              \n");
+    printf("\n\n");
 
+    //escolhendo a dificuldade
     int nivel;
     do {
         printf("Qual o nível de dificuldade?\n");
@@ -34,15 +43,18 @@ int main() {
         return 1;
     }
 
+    //gerando numero secreto aleatorio 
     int semente = time(0);
     srand(semente);
     int numerosecreto = rand() % 100;
 
+    //declarando variaveis que serao usadas mais tarde
     int chute;
     int tentativa = 1;
     double pontuacao = 1000;
     int acertou = 0;
 
+    //loop principal
     for(int i = 0; i < numerodetentativas; i++) {
         printf("Tentativa %d\n", tentativa);
         printf("Qual é o seu chute? ");
@@ -62,19 +74,44 @@ int main() {
         else {
             printf("O número secreto é maior que %d\n", chute);
         }
-
+        //contador de tentativas usadas
         tentativa++;
+        //calcula a quantidade de pontos
         pontuacao = pontuacao - (abs(chute - numerosecreto) / pontuador);
         if(pontuacao < 0) {
             pontuacao = 0;
         }
     }
     printf("Fim de jogo!\n");
+    //mensagem de vitoria ou derrota
     if(acertou) {
+        printf("\n\n");
+        printf("             OOOOOOOOOOO               \n");
+        printf("         OOOOOOOOOOOOOOOOOOO           \n");
+        printf("      OOOOOO  OOOOOOOOO  OOOOOO        \n");
+        printf("    OOOOOO      OOOOO      OOOOOO      \n");
+        printf("  OOOOOOOO  #   OOOOO  #   OOOOOOOO    \n");
+        printf(" OOOOOOOOOO    OOOOOOO    OOOOOOOOOO   \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOO  OOOOOOOOOOOOOOOOOOOOOOOOO  OOOO  \n");
+        printf(" OOOO  OOOOOOOOOOOOOOOOOOOOOOO  OOOO   \n");
+        printf("  OOOO   OOOOOOOOOOOOOOOOOOOO  OOOO    \n");
+        printf("    OOOOO   OOOOOOOOOOOOOOO   OOOO     \n");
+        printf("      OOOOOO   OOOOOOOOO   OOOOOO      \n");
+        printf("         OOOOOO         OOOOOO         \n");
+        printf("             OOOOOOOOOOOO              \n");
+        printf("\n\n");
         printf("Você ganhou!\n");
         printf("Parabéns! Você acertou o número secreto %d em %d tentativas!\n", numerosecreto, tentativa);
         printf("Pontuação: %.1f\n", pontuacao);
     } else {
+        printf("\n\n");
+        printf("       \\|/ ____ \\|/    \n");   
+        printf("        @~/ ,. \\~@      \n");   
+        printf("       /_( \\__/ )_\\    \n");   
+        printf("          \\__U_/        \n");
+        printf("\n\n");
         printf("Você perdeu!\n");
         printf("O número secreto era %d!\n", numerosecreto);
         printf("Tente de novo!\n");
